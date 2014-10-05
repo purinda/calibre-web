@@ -2,7 +2,8 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
-    "calibre-web/models"
+    "github.com/astaxie/beego/orm"
+    models "calibre-web/models"
 )
 
 type MainController struct {
@@ -10,7 +11,16 @@ type MainController struct {
 }
 
 func (this *MainController) Get() {
-    this.Data["Website"] = "beego.me"
-    this.Data["Email"]   = "astaxie@gmail.com"
+    o := orm.NewOrm()
+    o.Using("default")
+
+    var books [] *models.Book
+    bookInstance := models.Book{}
+    num, err := o.QueryTable(bookInstance.TableName()).All(&books)
+
+    if err != orm.ErrNoRows && num > 0 {
+        this.Data["books"] = books
+    }
+
     this.TplNames        = "index.tpl"
 }

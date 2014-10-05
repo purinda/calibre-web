@@ -1,0 +1,41 @@
+.page-header {
+    font-size: 0;
+    text-align: center;
+    margin: 95px auto 50px;
+    overflow: hidden;
+}
+
+.search-form {
+    font-size: 0;
+    text-align: center;
+    margin: 20px auto 50px;
+    overflow: hidden;
+}
+
+.no-border {
+    border-bottom: 0;
+}
+
+#footer {
+    height: 60px;
+}
+#footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.container {
+    width: auto;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  background-color: transparent;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}

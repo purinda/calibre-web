@@ -7,17 +7,23 @@ package models
  * https://github.com/mattn/go-sqlite3/blob/master/sqlite3_test/sqltest.go
  */
 
-import (
-	"time"
-    "fmt"
-    "log"
-)
-
 type Book struct {
-	Id            int       `form:"-"`
-	Title         string    `form:"title,text,Title:" valid:"MinSize(1);MaxSize(255)"`
-	UUID          string
-	PublishedDate uint64
-	HasCover      bool
-	FilePath      string
+    Id             int      `form:"-"`
+    Title          string   `form:"title,text,Title:" valid:"MinSize(1);MaxSize(255)"`
+    Sort           string
+    Timestamp      string
+    Pubdate        string
+    SeriesIndex    int
+    AuthorSort     string
+    Isbn           string
+    Lccn           string
+    Path           string
+    Flags          int
+    Uuid           string
+    HasCover       bool
+    LastModified   string
+}
+
+func (b *Book) TableName() string {
+    return "books"
 }
